@@ -1,7 +1,13 @@
+"use client"
 import Image from 'next/image'
 import styles from './page.module.css'
+import Link from 'next/link'
+
+import { useRouter } from 'next/navigation';
+// import { invoke } from '@tauri-apps/api';
 
 export default function Home() {
+  const router = useRouter();
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -40,6 +46,7 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
+        {/*
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -88,6 +95,18 @@ export default function Home() {
           <p>
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
+        </a>
+        */}
+
+        { /*<Link href="/Dashboard" className={styles.card} target='blank' rel="noopener noreferrer" onClick={}> */}
+        <a className={styles.card} target='blank' rel="noopener noreferrer" onClick={() => {router.push("/dashboard");} }>
+          <h2>Dashboard <span>-&gt;</span></h2>
+          <p>Dashboard for measurement control.</p>
+        </a>
+
+        <a className={styles.card} target='blank' rel="noopener noreferrer" onClick={() => {router.push("/about");} }>
+          <h2>About <span>-&gt;</span></h2>
+          <p>About the application.</p>
         </a>
       </div>
     </main>
